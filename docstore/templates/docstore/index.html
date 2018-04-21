@@ -1,0 +1,37 @@
+{% extends 'docstore/masterfile.html' %}
+{% block title %} Home {% endblock %}
+<br>
+{% block body %}
+<script>
+$(document).ready(function() {
+	$('#dt').DataTable();
+} );
+</script>
+{% if all_artifacts %}
+<div style="position:relative">
+    <div class="container" >
+        <table class="display responsive nowrap table-striped" id="dt" style="width: 100%;">
+            <thead>
+            <tr>
+                <th>Artifact Id</th><th>Artifact Name</th><th>Category</th><th>Type</th>
+            </tr>
+            </thead>
+        <tbody>
+        {% for artifact in all_artifacts %}
+
+            <tr>
+
+                <td>{{ artifact.pk }}</td><td><a href="{% url 'docstore:detail' artifact.pk %}">{{ artifact.docname }}</a></td><td>{{ artifact.category }}</td><td>{{ artifact.type }}</td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+    <h3>No artifacts to show</h3>
+{% endif %}
+
+{% endblock %}

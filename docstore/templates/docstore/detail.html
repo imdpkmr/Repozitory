@@ -1,0 +1,27 @@
+{% extends 'docstore/masterfile.html' %}
+
+{% block title %} Detail {% endblock %}
+{% block body %}
+<div class="container-fluid" style="padding-top: 70px;">
+    <div class="row">
+        <div class=" col-sm-6 col-md-4" style="background-color:#FF9999;padding:15px;border:5px solid transparent;border-radius:10px;">
+            <div class="panel panel-default" >
+                    <div class="panel-body">
+                        <div ><h1>{{artifact.docname}}</h1></div>
+                        <div ><label>Category:</label>{{artifact.category}}</div>
+                        <div ><label>Type:</label>{{artifact.type}}</div>
+                        <div ><label>Created:</label>{{artifact.createdAt}}</div>
+                        <div ><label>Updated:</label>{{artifact.updatedAt}}</div>
+                        <div class="well"><p>{{artifact.remark}}</p></div>
+                        <div >
+                            <button type="button" class="btn"><a href="{{ artifact.artifact_file.url}}" download>Download</a></button>
+                            <button type="button" class="btn"><a href="{% url 'docstore:artifact-update' artifact.pk %}">Update</a></button>
+                            <button type="button" class="btn btn-danger"><a href="{% url 'docstore:artifact-delete' artifact.pk %}">Delete</a></button>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
