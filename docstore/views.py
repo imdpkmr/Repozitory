@@ -42,7 +42,7 @@ class ArtifactUpdate(UpdateView):
 
 class ArtifactDelete(DeleteView):
     model = Artifact
-    success_url = reverse_lazy('docstore/index')
+    success_url = reverse_lazy('docstore:index')
 
 
 class UserFormView(View):
@@ -65,5 +65,5 @@ class UserFormView(View):
             if user is not None:
                 if user.is_active:
                     login(request,user)
-                    return redirect('music:index')
+                    return redirect('docstore:index')
         return render(request,self.template_name,{'form':form})

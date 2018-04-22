@@ -1,5 +1,5 @@
 body{
-background:white url('');
+background:white url('./images/background.jpg') no-repeat;
 }
 .navbar{
 border-radius:0;

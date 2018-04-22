@@ -45,13 +45,6 @@
         <!-- item -->
         <div class="collapse navbar-collapse" id="topnavbar">
 
-            <form class="navbar-form navbar-left" role="search" method="get" action="#">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="q" value="">
-                </div>
-                <button type="submit" class="btn btn-default">Search
-                </button>
-            </form>
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
                     <a href="{% url 'docstore:artifact-add' %}">
@@ -64,7 +57,7 @@
                         <span class="caret"></span>
                     </a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">Login</a></li>
+                          <li disabled><a href="#" >Login</a></li>
                           <li><a href="{% url 'docstore:register' %}">Signup</a></li>
                           <li class="divider"></li>
                           <li><a href="/admin">Admin Login</a></li>

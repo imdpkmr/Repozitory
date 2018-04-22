@@ -16,12 +16,23 @@
                         <div >
                             <button type="button" class="btn"><a href="{{ artifact.artifact_file.url}}" download>Download</a></button>
                             <button type="button" class="btn"><a href="{% url 'docstore:artifact-update' artifact.pk %}">Update</a></button>
-                            <button type="button" class="btn btn-danger"><a href="{% url 'docstore:artifact-delete' artifact.pk %}">Delete</a></button>
+
 
                         </div>
                     </div>
+                <div class="panel-footer">
+                <span class="pull-right">
+                    <form action="{% url 'docstore:artifact-delete' artifact.pk %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+
+                        <button type="submit" class="btn btn-danger btn-small">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </form>
+                </span>
+            </div></div>
             </div>
-        </div>
+
     </div>
 </div>
 {% endblock %}

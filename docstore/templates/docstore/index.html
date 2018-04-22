@@ -4,11 +4,14 @@
 {% block body %}
 <script>
 $(document).ready(function() {
-	$('#dt').DataTable();
-} );
+	$('#dt').DataTable({
+   "bfilter": true,
+   "pagingType": "simple_numbers"
+});
+});
 </script>
 {% if all_artifacts %}
-<div style="position:relative">
+<div id="display" style="position:relative;top:100px;">
     <div class="container" >
         <table class="display responsive nowrap table-striped" id="dt" style="width: 100%;">
             <thead>
